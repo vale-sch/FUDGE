@@ -124,7 +124,8 @@ namespace FudgeCore {
         let pose: XRViewerPose = _xrFrame.getViewerPose(this.referenceSpace);
         let glLayer: XRWebGLLayer = this.session.renderState.baseLayer;
         Render.resetFrameBuffer(glLayer.framebuffer);
-        // Render.clear(this.camera.clrBackground, this.clearColor);
+        this.crc3.clear(this.crc3.COLOR_BUFFER_BIT | this.crc3.DEPTH_BUFFER_BIT);
+
 
         this.poseMtx.set(pose.transform.matrix);
         this.poseMtx.rotateY(180);
