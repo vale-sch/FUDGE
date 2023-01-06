@@ -122,7 +122,6 @@ namespace FudgeCore {
         super.computeDrawing(_calculateTransforms);
         let pose: XRViewerPose = _xrFrame.getViewerPose(this.referenceSpace);
         let glLayer: XRWebGLLayer = this.session.renderState.baseLayer;
-
         Render.resetFrameBuffer(glLayer.framebuffer);
         // Render.clear(this.camera.clrBackground, this.clearColor);
 
@@ -135,11 +134,11 @@ namespace FudgeCore {
           let viewport: globalThis.XRViewport = glLayer.getViewport(view);
           this.crc3.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
 
-          if (this.useVRController)
-            this.setControllerConfigs(_xrFrame);
-          this.camera.mtxPivot.set(view.transform.matrix);
-          this.camera.mtxProjection.set(view.projectionMatrix);
-          this.camera.mtxCameraInverse.set(view.transform.inverse.matrix);
+          // if (this.useVRController)
+          //   this.setControllerConfigs(_xrFrame);
+          // this.camera.mtxPivot.set(view.transform.matrix);
+          // this.camera.mtxProjection.set(view.projectionMatrix);
+          // this.camera.mtxCameraInverse.set(view.transform.inverse.matrix);
 
 
           if (this.physicsDebugMode != PHYSICS_DEBUGMODE.PHYSIC_OBJECTS_ONLY)
