@@ -39,7 +39,7 @@ namespace FudgeCore {
       let contextAttributes: WebGLContextAttributes = {
         alpha: (_alpha != undefined) ? _alpha : fudgeConfig.alpha || false,
         antialias: (_antialias != undefined) ? _antialias : fudgeConfig.antialias || false,
-        premultipliedAlpha: false, xrCompatible: true
+        premultipliedAlpha: false, xrCompatible: true, preserveDrawingBuffer: true
       };
       Debug.fudge("Initialize RenderWebGL", contextAttributes);
       let canvas: HTMLCanvasElement = document.createElement("canvas");
@@ -133,7 +133,7 @@ namespace FudgeCore {
      * Reset the offscreen framebuffer to the original RenderingContext
      */
     public static resetFrameBuffer(_frameBuffer: WebGLFramebuffer = null): void {
-      RenderWebGL.crc3.bindFramebuffer(RenderWebGL.crc3.FRAMEBUFFER, _frameBuffer);
+      RenderWebGL.crc3.bindFramebuffer(WebGL2RenderingContext.FRAMEBUFFER, _frameBuffer);
     }
 
     /**
