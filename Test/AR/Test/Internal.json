@@ -103,7 +103,7 @@
                   "ƒ.ComponentMesh": {
                     "idMesh": "MeshCube|2023-01-06T13:27:31.369Z|88821",
                     "pivot": {
-                      "translation": "[0, 0, 0]",
+                      "translation": "[0, 0, 9]",
                       "rotation": "[0, 0, 0]",
                       "scaling": "[1, 1, 1]"
                     },
@@ -128,6 +128,20 @@
                       "active": true
                     },
                     "idMaterial": "Material|2023-01-06T13:27:34.749Z|42668"
+                  }
+                }
+              ],
+              "ComponentTransform": [
+                {
+                  "ƒ.ComponentTransform": {
+                    "local": {
+                      "translation": "[0, 0, 0]",
+                      "rotation": "[0, 0, 0]",
+                      "scaling": "[1, 1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    }
                   }
                 }
               ]

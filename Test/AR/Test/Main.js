@@ -5,6 +5,7 @@ var PhysicsVR;
     let xrViewport = new f.XRViewport();
     let graph = null;
     let camera = null;
+    let object = null;
     window.addEventListener("load", init);
     async function init() {
         await FudgeCore.Project.loadResources("Internal.json");
@@ -17,6 +18,7 @@ var PhysicsVR;
         let canvas = document.querySelector("canvas");
         camera = graph.getChildrenByName("Camera")[0].getComponent(f.ComponentVRDevice);
         xrViewport.clearColor = false;
+        object = graph.getChildrenByName("New Node")[0];
         xrViewport.initialize("Viewport", graph, camera, canvas);
         f.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);
         f.Loop.start(f.LOOP_MODE.FRAME_REQUEST, 60);
@@ -49,10 +51,13 @@ var PhysicsVR;
             f.Loop.stop();
             //starts xr-session.animationFrame instead of window.animationFrame, your xr-session is ready to go!
             f.Loop.start(f.LOOP_MODE.FRAME_REQUEST_XR, 60);
+            console.log(xrViewport.vrDevice.mtxLocal.translation.toString());
+            object.getComponent(f.ComponentTransform).mtxLocal.translation = xrViewport.vrDevice.mtxLocal.translation;
         });
     }
     function update(_event) {
         xrViewport.draw();
+        // object.getComponent(f.ComponentTransform).mtxLocal.translateZ(0.1);
     }
     function onEndSession() {
         f.Loop.stop();
