@@ -38,7 +38,7 @@ var PhysicsVR;
         //create XR Button -> Browser  //!important: look up the css file.
         let enterXRButton = document.createElement("button");
         enterXRButton.id = "xrButton";
-        enterXRButton.innerHTML = "Enter VR";
+        enterXRButton.innerHTML = "Enter AR";
         document.body.appendChild(enterXRButton);
         enterXRButton.addEventListener("click", async function () {
             //initalizes xr session 
