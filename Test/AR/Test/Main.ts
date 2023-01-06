@@ -1,6 +1,6 @@
 namespace PhysicsVR {
     import f = FudgeCore;
-    f.RenderWebGL.initialize(false, true);
+    //f.RenderWebGL.initialize(false, true);
     let xrViewport: f.XRViewport = new f.XRViewport();
     let graph: f.Graph = null;
     let camera: f.ComponentVRDevice = null;

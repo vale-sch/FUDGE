@@ -45,7 +45,7 @@
                       }
                     },
                     "Component": {
-                      "active": false
+                      "active": true
                     }
                   }
                 }
@@ -73,13 +73,13 @@
                       "b": 0,
                       "a": 1
                     },
-                    "backgroundEnabled": false,
+                    "backgroundEnabled": true,
                     "projection": "central",
                     "fieldOfView": 45,
                     "direction": "diagonal",
                     "aspect": 1.4968847352024923,
                     "pivot": {
-                      "translation": "[0, 0, -4]",
+                      "translation": "[0, 0, 3]",
                       "rotation": "[0, 0, 0]",
                       "scaling": "[1, 1, 1]"
                     },

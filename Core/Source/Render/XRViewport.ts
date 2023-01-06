@@ -129,7 +129,6 @@ namespace FudgeCore {
         this.poseMtx.set(pose.transform.matrix);
         this.poseMtx.rotateY(180);
         this.vrDevice.mtxLocal.set(this.poseMtx);
-        _xrFrame.get
         if (pose) {
           for (let view of pose.views) {
             let viewport: globalThis.XRViewport = glLayer.getViewport(view);

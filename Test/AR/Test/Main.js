@@ -1,7 +1,7 @@
 var PhysicsVR;
 (function (PhysicsVR) {
     var f = FudgeCore;
-    f.RenderWebGL.initialize(false, true);
+    //f.RenderWebGL.initialize(false, true);
     let xrViewport = new f.XRViewport();
     let graph = null;
     let camera = null;
