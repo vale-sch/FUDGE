@@ -124,11 +124,11 @@ namespace FudgeCore {
         let glLayer: XRWebGLLayer = this.session.renderState.baseLayer;
 
         Render.resetFrameBuffer(glLayer.framebuffer);
-        Render.clear(this.camera.clrBackground, this.clearColor);
+        // Render.clear(this.camera.clrBackground, this.clearColor);
 
-        this.poseMtx.set(pose.transform.matrix);
-        this.poseMtx.rotateY(180);
-        this.vrDevice.mtxLocal.set(this.poseMtx);
+        // this.poseMtx.set(pose.transform.matrix);
+        // this.poseMtx.rotateY(180);
+        // this.vrDevice.mtxLocal.set(this.poseMtx);
         if (pose) {
           // for (let view of pose.views) {
           const view = pose.views[0];
