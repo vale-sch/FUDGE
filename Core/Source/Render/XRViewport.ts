@@ -5,7 +5,7 @@ namespace FudgeCore {
    */
   export enum XR_SESSION_MODE {
     IMMERSIVE_VR = "immersive-vr",
-    //IMMERSIVE_AR = "immersive-ar",
+    IMMERSIVE_AR = "immersive-ar",
     //INLINE = "inline"
   }
 
@@ -48,7 +48,7 @@ namespace FudgeCore {
     /**
       * Connects the viewport to the given canvas to render the given branch to using the given camera-component, and names the viewport as given.
       */
-    public initialize(_name: string, _branch: Node, _cameraXR: ComponentVRDevice /* | ComponentCameraAR*/, _canvas: HTMLCanvasElement): void {
+    public initialize(_name: string, _branch: Node, _cameraXR: ComponentVRDevice, _canvas: HTMLCanvasElement): void {
       super.initialize(_name, _branch, _cameraXR, _canvas);
       this.camera = _cameraXR;
     }
@@ -96,8 +96,17 @@ namespace FudgeCore {
     /**
      * The AR session could be initialized here. Up till now not implemented. 
      */
-    public async initializeAR(_arSessionMode: XRSessionMode = null, _arReferenceSpaceType: XRReferenceSpaceType = null): Promise<void> {
-      Debug.error("NOT IMPLEMENTED YET! Check out initializeVR!");
+    public async initializeAR(_arSessionMode: XR_SESSION_MODE = null, _arReferenceSpaceType: XR_REFERENCE_SPACE = null): Promise<void> {
+      let session: XRSession = await navigator.xr.requestSession(_arSessionMode);
+      this.referenceSpace = await session.requestReferenceSpace(_arReferenceSpaceType);
+      await this.crc3.makeXRCompatible();
+      let nativeScaleFactor = XRWebGLLayer.getNativeFramebufferScaleFactor(session);
+      await session.updateRenderState({ baseLayer: new XRWebGLLayer(session, this.crc3, { framebufferScaleFactor: nativeScaleFactor }) });      // field of view anschauen was noch geht!
+      this.vrDevice = <ComponentVRDevice>this.camera;
+      this.initializevrDeviceTransform(this.camera.mtxWorld);
+
+
+      this.session = session;
     }
 
     /**
@@ -114,7 +123,7 @@ namespace FudgeCore {
         let pose: XRViewerPose = _xrFrame.getViewerPose(this.referenceSpace);
         let glLayer: XRWebGLLayer = this.session.renderState.baseLayer;
         Render.resetFrameBuffer(glLayer.framebuffer);
-        Render.clear(this.camera.clrBackground);
+        Render.clear(this.camera.clrBackground, this.clearColor);
 
         this.poseMtx.set(pose.transform.matrix);
         this.poseMtx.rotateY(180);

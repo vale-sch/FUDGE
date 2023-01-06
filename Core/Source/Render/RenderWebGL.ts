@@ -123,8 +123,9 @@ namespace FudgeCore {
     /**
      * Clear the offscreen renderbuffer with the given {@link Color}
      */
-    public static clear(_color: Color = null): void {
-      RenderWebGL.crc3.clearColor(_color.r, _color.g, _color.b, _color.a);
+    public static clear(_color: Color = null, _clearColor: boolean): void {
+      if (_clearColor)
+        RenderWebGL.crc3.clearColor(_color.r, _color.g, _color.b, _color.a);
       RenderWebGL.crc3.clear(WebGL2RenderingContext.COLOR_BUFFER_BIT | WebGL2RenderingContext.DEPTH_BUFFER_BIT);
     }
 

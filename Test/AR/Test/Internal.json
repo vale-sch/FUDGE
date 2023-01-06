@@ -1,0 +1,143 @@
+{
+  "MeshCube|2023-01-06T13:27:31.369Z|88821": {
+    "ƒ.MeshCube": {
+      "idResource": "MeshCube|2023-01-06T13:27:31.369Z|88821",
+      "name": "MeshCube",
+      "type": "MeshCube"
+    }
+  },
+  "Material|2023-01-06T13:27:34.749Z|42668": {
+    "ƒ.Material": {
+      "name": "ShaderFlat",
+      "idResource": "Material|2023-01-06T13:27:34.749Z|42668",
+      "shader": "ShaderFlat",
+      "coat": {
+        "ƒ.CoatRemissive": {
+          "color": "[1, 1, 1, 1]",
+          "diffuse": 1,
+          "specular": 0
+        }
+      }
+    }
+  },
+  "Graph|2023-01-06T13:26:56.713Z|93474": {
+    "ƒ.Graph": {
+      "name": "NewGraph",
+      "active": true,
+      "components": {},
+      "children": [
+        {
+          "ƒ.Node": {
+            "name": "Camera",
+            "active": true,
+            "components": {
+              "ComponentLight": [
+                {
+                  "ƒ.ComponentLight": {
+                    "pivot": {
+                      "translation": "[0, 0, 0]",
+                      "rotation": "[0, 0, 0]",
+                      "scaling": "[1, 1, 1]"
+                    },
+                    "light": {
+                      "ƒ.LightAmbient": {
+                        "color": "[1, 1, 1, 1]"
+                      }
+                    },
+                    "Component": {
+                      "active": false
+                    }
+                  }
+                }
+              ],
+              "ComponentTransform": [
+                {
+                  "ƒ.ComponentTransform": {
+                    "local": {
+                      "translation": "[0, 0, 0]",
+                      "rotation": "[0, 0, 0]",
+                      "scaling": "[1, 1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    }
+                  }
+                }
+              ],
+              "ComponentVRDevice": [
+                {
+                  "ƒ.ComponentVRDevice": {
+                    "backgroundColor": {
+                      "r": 0,
+                      "g": 0,
+                      "b": 0,
+                      "a": 1
+                    },
+                    "backgroundEnabled": false,
+                    "projection": "central",
+                    "fieldOfView": 45,
+                    "direction": "diagonal",
+                    "aspect": 1.4968847352024923,
+                    "pivot": {
+                      "translation": "[0, 0, -4]",
+                      "rotation": "[0, 0, 0]",
+                      "scaling": "[1, 1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    }
+                  }
+                }
+              ]
+            },
+            "children": []
+          }
+        },
+        {
+          "ƒ.Node": {
+            "name": "New Node",
+            "active": true,
+            "components": {
+              "ComponentMesh": [
+                {
+                  "ƒ.ComponentMesh": {
+                    "idMesh": "MeshCube|2023-01-06T13:27:31.369Z|88821",
+                    "pivot": {
+                      "translation": "[0, 0, 0]",
+                      "rotation": "[0, 0, 0]",
+                      "scaling": "[1, 1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    }
+                  }
+                }
+              ],
+              "ComponentMaterial": [
+                {
+                  "ƒ.ComponentMaterial": {
+                    "sortForAlpha": false,
+                    "clrPrimary": "[1, 0, 0, 1]",
+                    "clrSecondary": "[1, 1, 1, 1]",
+                    "pivot": {
+                      "translation": "[0, 0]",
+                      "rotation": 0,
+                      "scaling": "[1, 1]"
+                    },
+                    "Component": {
+                      "active": true
+                    },
+                    "idMaterial": "Material|2023-01-06T13:27:34.749Z|42668"
+                  }
+                }
+              ]
+            },
+            "children": []
+          }
+        }
+      ],
+      "idResource": "Graph|2023-01-06T13:26:56.713Z|93474",
+      "type": "Graph"
+    }
+  }
+}

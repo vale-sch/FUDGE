@@ -14,7 +14,7 @@ namespace FudgeCore {
     public camera: ComponentCamera = null; // The camera representing the view parameters to render the branch.
     public rectSource: Rectangle;
     public rectDestination: Rectangle;
-
+    public clearColor: boolean;
     // TODO: verify if client to canvas should be in Viewport or somewhere else (Window, Container?)
     // Multiple viewports using the same canvas shouldn't differ here...
     // different framing methods can be used, this is the default
@@ -138,7 +138,7 @@ namespace FudgeCore {
       if (_calculateTransforms)
         this.calculateTransforms();
 
-      Render.clear(this.camera.clrBackground);
+      Render.clear(this.camera.clrBackground, this.clearColor);
     }
     /**
      * Calculate the cascade of transforms in this branch and store the results as mtxWorld in the {@link Node}s and {@link ComponentMesh}es 

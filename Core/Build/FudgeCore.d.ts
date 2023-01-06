@@ -1026,7 +1026,7 @@ declare namespace FudgeCore {
         /**
          * Clear the offscreen renderbuffer with the given {@link Color}
          */
-        static clear(_color?: Color): void;
+        static clear(_color: Color, _clearColor: boolean): void;
         /**
          * Reset the offscreen framebuffer to the original RenderingContext
          */
@@ -5300,6 +5300,7 @@ declare namespace FudgeCore {
         camera: ComponentCamera;
         rectSource: Rectangle;
         rectDestination: Rectangle;
+        clearColor: boolean;
         frameClientToCanvas: FramingScaled;
         frameCanvasToDestination: FramingComplex;
         frameDestinationToSource: FramingScaled;
@@ -5415,7 +5416,8 @@ declare namespace FudgeCore {
      * Different xr session modes available. Could be expand with more modes in the future.
      */
     enum XR_SESSION_MODE {
-        IMMERSIVE_VR = "immersive-vr"
+        IMMERSIVE_VR = "immersive-vr",
+        IMMERSIVE_AR = "immersive-ar"
     }
     /**
      * Different reference vr-spaces available, creator has to check if the space is supported with its device.
@@ -5454,7 +5456,7 @@ declare namespace FudgeCore {
         /**
          * The AR session could be initialized here. Up till now not implemented.
          */
-        initializeAR(_arSessionMode?: XRSessionMode, _arReferenceSpaceType?: XRReferenceSpaceType): Promise<void>;
+        initializeAR(_arSessionMode?: XR_SESSION_MODE, _arReferenceSpaceType?: XR_REFERENCE_SPACE): Promise<void>;
         /**
          * Draw the xr viewport displaying its branch. By default, the transforms in the branch are recalculated first.
          * Pass `false` if calculation was already done for this frame
