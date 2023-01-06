@@ -103,5 +103,5 @@ Standalone state machine and ComponentStateMachine running parallel.
 
 ## AR
 
-- [AR](AR/index.html)  
+- [AR](AR/Test/index.html)  
   Test the handling of time, the core game loop and timer events
