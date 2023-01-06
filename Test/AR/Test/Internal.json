@@ -79,7 +79,7 @@
                     "direction": "diagonal",
                     "aspect": 1.4968847352024923,
                     "pivot": {
-                      "translation": "[0, 0, 3]",
+                      "translation": "[0, 0, 0]",
                       "rotation": "[0, 0, 0]",
                       "scaling": "[1, 1, 1]"
                     },

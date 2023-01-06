@@ -39,7 +39,7 @@ namespace FudgeCore {
       let contextAttributes: WebGLContextAttributes = {
         alpha: (_alpha != undefined) ? _alpha : fudgeConfig.alpha || false,
         antialias: (_antialias != undefined) ? _antialias : fudgeConfig.antialias || false,
-        premultipliedAlpha: false
+        premultipliedAlpha: false, preserveDrawingBuffer: true
       };
       Debug.fudge("Initialize RenderWebGL", contextAttributes);
       let canvas: HTMLCanvasElement = document.createElement("canvas");
@@ -50,11 +50,11 @@ namespace FudgeCore {
       );
       RenderWebGL.crc3 = crc3;
       // Enable backface- and zBuffer-culling.
-      // crc3.enable(WebGL2RenderingContext.CULL_FACE);
-      // crc3.enable(WebGL2RenderingContext.DEPTH_TEST);
-      // crc3.enable(WebGL2RenderingContext.BLEND);
-      // crc3.blendEquation(WebGL2RenderingContext.FUNC_ADD);
-      // RenderWebGL.setBlendMode(BLEND.TRANSPARENT);
+      crc3.enable(WebGL2RenderingContext.CULL_FACE);
+      crc3.enable(WebGL2RenderingContext.DEPTH_TEST);
+      crc3.enable(WebGL2RenderingContext.BLEND);
+      crc3.blendEquation(WebGL2RenderingContext.FUNC_ADD);
+      RenderWebGL.setBlendMode(BLEND.TRANSPARENT);
       // RenderOperator.crc3.pixelStorei(WebGL2RenderingContext.UNPACK_FLIP_Y_WEBGL, true);
       RenderWebGL.rectRender = RenderWebGL.getCanvasRect();
 

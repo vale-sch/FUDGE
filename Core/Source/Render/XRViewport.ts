@@ -101,8 +101,7 @@ namespace FudgeCore {
       let session: XRSession = await navigator.xr.requestSession(_arSessionMode);
       this.referenceSpace = await session.requestReferenceSpace(_arReferenceSpaceType);
       await this.crc3.makeXRCompatible();
-      let nativeScaleFactor = XRWebGLLayer.getNativeFramebufferScaleFactor(session);
-      await session.updateRenderState({ baseLayer: new XRWebGLLayer(session, this.crc3, { framebufferScaleFactor: nativeScaleFactor }) });      // field of view anschauen was noch geht!
+      await session.updateRenderState({ baseLayer: new XRWebGLLayer(session, this.crc3) });      // field of view anschauen was noch geht!
       this.vrDevice = <ComponentVRDevice>this.camera;
       this.initializevrDeviceTransform(this.camera.mtxWorld);
 
