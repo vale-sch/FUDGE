@@ -100,7 +100,7 @@ namespace FudgeCore {
     public async initializeAR(_arSessionMode: XR_SESSION_MODE = null, _arReferenceSpaceType: XR_REFERENCE_SPACE = null): Promise<void> {
       let session: XRSession = await navigator.xr.requestSession(_arSessionMode);
       this.referenceSpace = await session.requestReferenceSpace(_arReferenceSpaceType);
-      await this.crc3.makeXRCompatible();
+      // await this.crc3.makeXRCompatible();
       await session.updateRenderState({ baseLayer: new XRWebGLLayer(session, this.crc3) });      // field of view anschauen was noch geht!
       this.vrDevice = <ComponentVRDevice>this.camera;
       this.initializevrDeviceTransform(this.camera.mtxWorld);
