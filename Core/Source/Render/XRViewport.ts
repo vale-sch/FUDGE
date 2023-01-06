@@ -127,26 +127,28 @@ namespace FudgeCore {
         Render.resetFrameBuffer(glLayer.framebuffer);
         Render.clear(this.camera.clrBackground, this.clearColor);
 
-        this.poseMtx.set(pose.transform.matrix);
-        this.poseMtx.rotateY(180);
-        this.vrDevice.mtxLocal.set(this.poseMtx);
+        // this.poseMtx.set(pose.transform.matrix);
+        // this.poseMtx.rotateY(180);
+        // this.vrDevice.mtxLocal.set(this.poseMtx);
         if (pose) {
-          for (let view of pose.views) {
-            let viewport: globalThis.XRViewport = glLayer.getViewport(view);
-            this.crc3.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
+          const view = pose.views[0];
 
-            if (this.useVRController)
-              this.setControllerConfigs(_xrFrame);
-            this.camera.mtxProjection.set(view.projectionMatrix);
-            this.camera.mtxCameraInverse.set(view.transform.inverse.matrix);
+          let viewport: globalThis.XRViewport = glLayer.getViewport(view);
+          this.crc3.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
+
+          if (this.useVRController)
+            this.setControllerConfigs(_xrFrame);
+          this.camera.mtxPivot.set(view.transform.matrix);
+          this.camera.mtxProjection.set(view.projectionMatrix);
+          this.camera.mtxCameraInverse.set(view.transform.inverse.matrix);
 
 
-            if (this.physicsDebugMode != PHYSICS_DEBUGMODE.PHYSIC_OBJECTS_ONLY)
-              Render.draw(this.camera);
-            if (this.physicsDebugMode != PHYSICS_DEBUGMODE.NONE) {
-              Physics.draw(this.camera, this.physicsDebugMode);
-            }
+          if (this.physicsDebugMode != PHYSICS_DEBUGMODE.PHYSIC_OBJECTS_ONLY)
+            Render.draw(this.camera);
+          if (this.physicsDebugMode != PHYSICS_DEBUGMODE.NONE) {
+            Physics.draw(this.camera, this.physicsDebugMode);
           }
+
           Render.setRenderRectangle(Render.getRenderRectangle());
         }
       }
