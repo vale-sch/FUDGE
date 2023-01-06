@@ -55,6 +55,8 @@ var PhysicsVR;
     }
     function update(_event) {
         xrViewport.draw();
+        if (xrViewport.session)
+            object.getComponent(f.ComponentTransform).mtxLocal.translation = xrViewport.vrDevice.mtxLocal.translation;
     }
     function onEndSession() {
         f.Loop.stop();

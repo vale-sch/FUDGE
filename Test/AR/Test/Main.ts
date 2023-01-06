@@ -66,6 +66,8 @@ namespace PhysicsVR {
 
     function update(_event: Event): void {
         xrViewport.draw();
+        if (xrViewport.session)
+            object.getComponent(f.ComponentTransform).mtxLocal.translation = xrViewport.vrDevice.mtxLocal.translation;
     }
 
 
