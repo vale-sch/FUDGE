@@ -119,6 +119,7 @@ namespace FudgeCore {
         super.draw(_calculateTransforms);
 
       if (_xrFrame) {
+
         super.computeDrawing(_calculateTransforms);
         let pose: XRViewerPose = _xrFrame.getViewerPose(this.referenceSpace);
         let glLayer: XRWebGLLayer = this.session.renderState.baseLayer;
