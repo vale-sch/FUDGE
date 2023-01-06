@@ -17,7 +17,7 @@ var PhysicsVR;
         }
         let canvas = document.querySelector("canvas");
         camera = graph.getChildrenByName("Camera")[0].getComponent(f.ComponentVRDevice);
-        xrViewport.clearColor = false;
+        // xrViewport.clearColor = false;
         object = graph.getChildrenByName("New Node")[0];
         xrViewport.initialize("Viewport", graph, camera, canvas);
         f.Loop.addEventListener("loopFrame" /* LOOP_FRAME */, update);

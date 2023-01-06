@@ -17,7 +17,7 @@ namespace PhysicsVR {
         }
         let canvas: HTMLCanvasElement = <HTMLCanvasElement>document.querySelector("canvas");
         camera = graph.getChildrenByName("Camera")[0].getComponent(f.ComponentVRDevice);
-        xrViewport.clearColor = false;
+        // xrViewport.clearColor = false;
         object = graph.getChildrenByName("New Node")[0];
 
         xrViewport.initialize("Viewport", graph, camera, canvas);
