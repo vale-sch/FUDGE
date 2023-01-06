@@ -50,10 +50,10 @@ namespace FudgeCore {
       );
       RenderWebGL.crc3 = crc3;
       // Enable backface- and zBuffer-culling.
-      crc3.enable(WebGL2RenderingContext.CULL_FACE);
-      crc3.enable(WebGL2RenderingContext.DEPTH_TEST);
-      crc3.enable(WebGL2RenderingContext.QUERY_RESULT);
-      crc3.blendEquation(WebGL2RenderingContext.FUNC_ADD);
+      // crc3.enable(WebGL2RenderingContext.CULL_FACE);
+      // crc3.enable(WebGL2RenderingContext.DEPTH_TEST);
+      // crc3.enable(WebGL2RenderingContext.QUERY_RESULT);
+      // crc3.blendEquation(WebGL2RenderingContext.FUNC_ADD);
       RenderWebGL.setBlendMode(BLEND.OPAQUE);
       // RenderOperator.crc3.pixelStorei(WebGL2RenderingContext.UNPACK_FLIP_Y_WEBGL, true);
       RenderWebGL.rectRender = RenderWebGL.getCanvasRect();
@@ -133,7 +133,7 @@ namespace FudgeCore {
      * Reset the offscreen framebuffer to the original RenderingContext
      */
     public static resetFrameBuffer(_frameBuffer: WebGLFramebuffer = null): void {
-      RenderWebGL.crc3.bindFramebuffer(WebGL2RenderingContext.FRAMEBUFFER, _frameBuffer);
+      RenderWebGL.crc3.bindFramebuffer(RenderWebGL.crc3.FRAMEBUFFER, _frameBuffer);
     }
 
     /**
