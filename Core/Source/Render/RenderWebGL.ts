@@ -39,7 +39,7 @@ namespace FudgeCore {
       let contextAttributes: WebGLContextAttributes = {
         alpha: (_alpha != undefined) ? _alpha : fudgeConfig.alpha || false,
         antialias: (_antialias != undefined) ? _antialias : fudgeConfig.antialias || false,
-        premultipliedAlpha: false, preserveDrawingBuffer: true
+        premultipliedAlpha: false, xrCompatible: true
       };
       Debug.fudge("Initialize RenderWebGL", contextAttributes);
       let canvas: HTMLCanvasElement = document.createElement("canvas");
